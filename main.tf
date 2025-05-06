@@ -81,7 +81,9 @@ resource "aws_lambda_event_source_mapping" "sqs_trigger" {
   enabled          = true
 }
 
-# DynamoDB Stream Event Source Mapping
 resource "aws_lambda_event_source_mapping" "ddb_stream_trigger" {
-  event_source_arn = aws
+  event_source_arn  = aws_dynamodb_table.file_data.stream_arn
+  function_name     = aws_lambda_function.stream_logger.arn
+  starting_position = "LATEST"
+  enabled           = true
 }
