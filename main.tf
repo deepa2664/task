@@ -84,3 +84,4 @@ resource "aws_lambda_event_source_mapping" "sqs_trigger" {
 # DynamoDB Stream Event Source Mapping
 resource "aws_lambda_event_source_mapping" "ddb_stream_trigger" {
   event_source_arn = aws
+}
